@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-test02
+  labels:
+    app: example-test02
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example-test02
+  template:
+    metadata:
+      labels:
+        app: example-test02
+    spec:
+      containers:
+      - name: example-test02
+        image: harbor.labaq.life/labaq/example-test02
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: dev
+        - name: SERVICE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: example-test02-cm
+              key: service_name
+        - name: MY_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: MY_POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+

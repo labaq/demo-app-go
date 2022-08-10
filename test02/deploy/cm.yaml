@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-test02-cm
+  namespace: default
+data:
+  service_name: "http://example-gin.default:8080"

@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+
+namePrefix: dev-
+nameSuffix:
+
+commonLabels:
+  app: example-test02
+  version: v1
+  env: dev
+
+resources:
+  - deploy.yaml
+  - cm.yaml
+  - svc.yaml
+
