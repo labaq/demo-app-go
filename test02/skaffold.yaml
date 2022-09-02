@@ -2,7 +2,7 @@ apiVersion: skaffold/v2beta28
 kind: Config
 build:
   artifacts:
-  - image: harbor.labaq.life/labaq/example-test02
+  - image: harbor.labaq.life/labaq/demo-app-go
     ko: {}
 deploy:
   kustomize:
