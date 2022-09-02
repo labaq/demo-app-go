@@ -1,4 +1,4 @@
 application:
-  name: example-test02
+  name: demo-app-go
   manifestType: kustomizeGit
-  resourcePath: [ "test02/deploy" ]
+  resourcePath: [ "deploy" ]
